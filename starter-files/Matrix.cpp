@@ -9,12 +9,8 @@
 void Matrix_init(Matrix* mat, int width, int height) {
   mat->width = width;
   mat->height = height;
-  mat->data.resize(width * height);
-  for(int i = 0; i < (width*height); ++i) {
-    mat->data[i] = 0;
-  }
+  mat->data.assign((width*height), 0);
 }
-
 // REQUIRES: mat points to a valid Matrix
 // MODIFIES: os
 // EFFECTS:  First, prints the width and height for the Matrix to os:
@@ -64,7 +60,7 @@ int* Matrix_at(Matrix* mat, int row, int column) {
 // EFFECTS:  Returns a pointer-to-const to the element in
 //           the Matrix at the given row and column.
 const int* Matrix_at(const Matrix* mat, int row, int column) {
-  return &(mat->data[(row * column)]);
+  return &(mat->data[row * mat->width + column]);
 }
 
 // REQUIRES: mat points to a valid Matrix
@@ -73,9 +69,7 @@ const int* Matrix_at(const Matrix* mat, int row, int column) {
 void Matrix_fill(Matrix* mat, int value) {
   int width = mat->width;
   int height = mat->height;
-  for(int i = 0; i < (width*height); ++i) {
-    mat->data[i] = value;
-  }
+  mat->data.assign((width * height), value);
 }
 
 // REQUIRES: mat points to a valid Matrix

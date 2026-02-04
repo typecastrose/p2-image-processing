@@ -218,6 +218,15 @@ static void write_seam(const vector<int> &seam, const string &filename) {
 }
 
 TEST(test1_dog) {
+
+  ifstream test_file("dog.ppm");
+  if (!test_file) {
+    cout << "ERROR: Cannot find dog.ppm!" << endl;
+    cout << "Current directory: ";
+    system("pwd");  // or system("cd") on Windows
+  }
+  test_file.close();
+
   vector<int> dog_sizes = {4, 5};
   test_all("dog", dog_sizes, 1);
 }
