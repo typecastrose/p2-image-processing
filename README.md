@@ -2,7 +2,7 @@ EECS 280 Project 2
 ===========================
 Image Resizing Program using a Seam-Carving Algorithm
 
-By Ash Sultan <tsultan@umich.edu>
+By Ashe <tsultan@umich.edu>
 
 ## Longer Description
 Build an image resizing program using a seam-carving algorithm.
